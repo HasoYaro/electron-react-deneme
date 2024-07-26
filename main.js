@@ -5,6 +5,7 @@ const { start } = require('repl');
 
 function createMainWindow(){
     const mainWindow = new BrowserWindow({
+        title: 'Anani Sikim Hayat',
         width: 1024,
         height: 576,
         resizable: false,
@@ -18,23 +19,27 @@ function createMainWindow(){
             preload: path.join(__dirname, './mainPreload.js')
         }
     });
-    // mainWindow.loadFile(path.join(__dirname, './pages/loading/loading.html'));
 
-    //     ipcMain.on('loading', (e, state) => {
-    //         if(!state)
-    //             mainWindow.loadFile(path.join(__dirname, './pages/mainMenu/mainMenu.html'));
-            
-    //     })
-
-    //     // mainWindow.loadFile(path.join(__dirname, './renderer/codes/loading.html'));
     mainWindow.webContents.openDevTools()
 
-    const startUrl = url.format({
-        pathname: path.join(__dirname, './app/build/index.html'),
-        protocol: 'file'
+    // mainPreload'dan loading fonksiyonunu bekliyor
+    const startUrll = ipcMain.on('loading', (e, state) => {
+        if(!state) {
+            startUrl = url.format({
+            pathname: path.join(__dirname, './app/build/index.html'),
+            protocol: 'file'
+        })
+
+        mainWindow.loadURL(startUrl)
+        }
     })
 
-    mainWindow.loadURL(startUrl)
+    let startUrl = url.format({
+            pathname: path.join(__dirname, './loading/loading.html'),
+            protocol: 'file'
+        })
+
+        mainWindow.loadURL(startUrl)
 }
 
 app.whenReady().then(() => {

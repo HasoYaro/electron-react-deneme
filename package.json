@@ -4,7 +4,8 @@
   "description": "Electron React Deneme",
   "main": "main.js",
   "scripts": {
-    "start": "electronmon ."
+    "start": "electronmon .",
+    "hasan": "electron ."
   },
   "keywords": [
     "electronjs",
@@ -14,7 +15,9 @@
   "author": "Kaitenteki",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "electron": "^31.3.0",
+    "electron-db": "^0.15.7",
     "electronmon": "^2.0.3"
   }
 }
