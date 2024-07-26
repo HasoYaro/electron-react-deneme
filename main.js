@@ -1,10 +1,16 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const url = require('url')
 const path = require('path');
-const { start } = require('repl');
+const { autoUpdater, AppUpdater } = require('electron-updater')
+
+
+autoUpdater.autoDownload = true;
+autoUpdater.autoInstallOnAppQuit = true;
+
+let mainWindow;
 
 function createMainWindow(){
-    const mainWindow = new BrowserWindow({
+    mainWindow = new BrowserWindow({
         title: 'Anani Sikim Hayat',
         width: 1024,
         height: 576,
@@ -42,8 +48,11 @@ function createMainWindow(){
         mainWindow.loadURL(startUrl)
 }
 
+
 app.whenReady().then(() => {
     createMainWindow();
+    autoUpdater.checkForUpdates()
+    mainWindow.webContents.send('updateState', 'Searching for updates')
 })
 
 app.on('window-all-closed', () => {

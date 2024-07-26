@@ -11,12 +11,29 @@
     "reactjs",
     "javascript"
   ],
+  "repository": "https://github.com/HasoYaro/electron-react-deneme",
+  "publish": {
+    "provider": "github",
+    "releaseType": "release"
+  },
+  "build": {
+    "appId": "com.kaitenteki.electrondeneme",
+    "productName": "Electron React Deneme",
+    "win": {
+      "target": "nsis"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
   "author": "Kaitenteki",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.4.5",
     "electron": "^31.3.0",
+    "electron-builder": "^24.13.3",
     "electron-db": "^0.15.7",
+    "electron-updater": "^6.2.1",
     "electronmon": "^2.0.3"
   }
 }

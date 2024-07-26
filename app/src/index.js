@@ -5,13 +5,7 @@ import { createBrowserRouter, RouterProvider, HashRouter, Route, Routes} from 'r
 import reportWebVitals from './reportWebVitals';
 import Layout from "./routes/layout";
 
-
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <Root />,
-//   }
-// ])
+import './i18next'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
