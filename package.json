@@ -4,8 +4,7 @@
   "description": "Electron React Deneme",
   "main": "main.js",
   "scripts": {
-    "start": "electronmon .",
-    "hasan": "electron ."
+    "start": "electronmon ."
   },
   "keywords": [
     "electronjs",
