@@ -1,0 +1,20 @@
+{
+  "name": "electron-react-deneme",
+  "version": "1.0.0",
+  "description": "Electron React Deneme",
+  "main": "main.js",
+  "scripts": {
+    "start": "electronmon ."
+  },
+  "keywords": [
+    "electronjs",
+    "reactjs",
+    "javascript"
+  ],
+  "author": "Kaitenteki",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^31.3.0",
+    "electronmon": "^2.0.3"
+  }
+}
