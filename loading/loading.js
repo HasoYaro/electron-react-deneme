@@ -1,10 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-   window.Api.updateState(updateState)
+document.addEventListener("DOMContentLoaded", async () => {
+   await window.Api.updateStater(updateState)
+   //updateState(await window.Api.updateStater())
 })
 
 function updateState(event, state){
     let uS = document.getElementById('updateState')
-    console.log(uS)
+    console.log(state)
     uS.innerHTML = state;
 }
 

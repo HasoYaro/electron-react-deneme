@@ -36,7 +36,7 @@ let updateData = async (db, id, set) => {
 
 contextBridge.exposeInMainWorld('Api', {
     loading: (state) => {if(!state) ipcRenderer.send('loading', state)},
-    updateState: (callback) => {ipcRenderer.on('updateState', callback)},
+    updateStater: (callback) => {ipcRenderer.on('updateState', callback)},
 
     openDb: () => openDb(),
     getAllData: (db) => getAllData(db),

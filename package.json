@@ -1,10 +1,12 @@
 {
   "name": "electron-react-deneme",
-  "version": "1.0.0",
+  "version": "0.0.1",
+  "private": true,
   "description": "Electron React Deneme",
-  "main": "main.js",
+  "main": "./main.js",
   "scripts": {
-    "start": "electronmon ."
+    "start": "electronmon .",
+    "dist": "electron-builder"
   },
   "keywords": [
     "electronjs",
@@ -31,9 +33,11 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "electron": "^31.3.0",
-    "electron-builder": "^24.13.3",
     "electron-db": "^0.15.7",
     "electron-updater": "^6.2.1",
     "electronmon": "^2.0.3"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.13.3"
   }
 }

@@ -7,8 +7,6 @@ const { autoUpdater, AppUpdater } = require('electron-updater')
 autoUpdater.autoDownload = true;
 autoUpdater.autoInstallOnAppQuit = true;
 
-let mainWindow;
-
 function createMainWindow(){
     mainWindow = new BrowserWindow({
         title: 'Anani Sikim Hayat',
@@ -52,7 +50,31 @@ function createMainWindow(){
 app.whenReady().then(() => {
     createMainWindow();
     autoUpdater.checkForUpdates()
-    mainWindow.webContents.send('updateState', 'Searching for updates')
+   // mainWindow.webContents.send('updateState', 'Searching for updates')
+   mainWindow.webContents.on('did-finish-load', function () {
+    mainWindow.webContents.send('updateState', 'Checking for updates...');
+});
+})
+
+autoUpdater.on('update-available', (info) => {
+    mainWindow.webContents.send('updateState', 'Update found!')
+    let pth = autoUpdater.downloadUpdate()
+    mainWindow.webContents.send('updateState', pth)
+})
+
+autoUpdater.on('update-not-available', (info) => {
+    mainWindow.webContents.send('updateState', 'Update found!')
+    mainWindow.webContents.send('updateState', pth)
+})
+
+
+autoUpdater.on('update-donwloaded', (info) => {
+    mainWindow.webContents.send('updateState', 'Update downloaded!')
+})
+
+
+autoUpdater.on('error', (info) => {
+    mainWindow.webContents.send('updateState', info)
 })
 
 app.on('window-all-closed', () => {
